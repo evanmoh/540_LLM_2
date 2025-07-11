@@ -73,9 +73,6 @@ def main():
 
     # Load train/test data
     train_df, test_df = load_data('data/processed/train.csv', 'data/processed/test.csv')
-    
-    # For local file, you can also do:
-    # train_df, test_df = load_data('train.csv', 'test.csv')
 
     # remove stop words & etc
     train_df = preprocess_texts(train_df, nlp)
