@@ -8,10 +8,10 @@ import os
 # Ensure models/ml.py is importable
 sys.path.append(os.path.join(os.path.dirname(__file__), 'models'))
 
-from ml import predict_nccn  # Update if your function has a different name
+from models.ml import predict_nccn  # Update if your function has a different name
 
 # ---- App Header ----
-st.title("NCCN Guideline Sample Analyzer")
+st.title("NCCN Guideline Lung Cancer Sentence Classifier")
 st.write("**Evan Moh** · Duke University · AIPI-540 Deep Learning")
 
 st.markdown(
