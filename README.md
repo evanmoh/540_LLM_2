@@ -9,9 +9,6 @@ This project builds automated text classification models to distinguish between 
 It compares naive keyword matching, classical machine learning, and deep learning.  
 It also provides a Streamlit web app for clinical text classification.
 
-## File Structures
-├── app.py                  # Streamlit web application
-├── data_prep.py            # Data cleaning, PDF extraction, and data splitting
 ## File Structure
 
 ```
