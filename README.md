@@ -12,6 +12,11 @@ It also provides a Streamlit web app for clinical text classification.
 ## File Structures
 ├── app.py                  # Streamlit web application
 ├── data_prep.py            # Data cleaning, PDF extraction, and data splitting
+## File Structure
+
+```
+├── app.py                  # Streamlit web application
+├── data_prep.py            # Data cleaning, PDF extraction, and data splitting
 ├── ml.py                   # Classical ML model (TF-IDF + Logistic Regression)
 ├── nn.py                   # Neural network (Keras) training and evaluation
 ├── naive.py                # Naive keyword search baseline
@@ -28,8 +33,8 @@ It also provides a Streamlit web app for clinical text classification.
 │       └── sclc_nccn.pdf   # SCLC guideline PDF
 ├── models/
 │   ├── nn_model.keras      # Trained Keras neural network model
-│   ├── nn_tokenizer.pkl    # Tokenizer for neural net
-
+│   └── nn_tokenizer.pkl    # Tokenizer for neural net
+```
 
 ## Data Preparation
 
