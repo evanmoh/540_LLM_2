@@ -5,4 +5,5 @@ spacy
 tqdm
 PyPDF2
 numpy
+tensorflow
 pickle-mixin
