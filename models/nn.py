@@ -6,12 +6,15 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.metrics import classification_report, accuracy_score
+import pickle
 
+#Loading data which are already split from data_prep
 def load_data(train_path, test_path):
     train_df = pd.read_csv(train_path)
     test_df = pd.read_csv(test_path)
     return train_df, test_df
 
+# Pre process text file
 def preprocess_text(train_df, test_df, max_words=10000, max_len=50):
     label_map = {'NSCLC': 0, 'SCLC': 1}
     y_train = train_df['label'].map(label_map).values
@@ -69,6 +72,12 @@ def main():
     X_train_seq, X_test_seq, y_train, y_test, X_test, tokenizer = preprocess_text(train_df, test_df, max_words, max_len)
     model = build_nn_model(max_words, max_len)
     train_and_evaluate(model, X_train_seq, y_train, X_test_seq, y_test, X_test)
+    
+    # Save the model
+    model.save('models/nn_model.keras')
+    with open('models/nn_tokenizer.pkl', 'wb') as f:
+        pickle.dump(tokenizer, f)
+    print("Model and tokenizer saved!")
 
 if __name__ == '__main__':
     main()

@@ -5,7 +5,6 @@ import spacy
 import pandas as pd
 import re
 from sklearn.model_selection import train_test_split
-from tqdm import tqdm
 
 def clean_for_excel(s):
     return re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]', '', s)
@@ -68,7 +67,6 @@ df_all['idx'] = df_all.index
 df_all = df_all[['idx', 'sentence', 'label']]
 
 # Add processed_sentence column for all.csv 
-
 nlp = spacy.load('en_core_web_sm')
 
 
@@ -80,7 +78,6 @@ def spacy_preprocess(text):
         if not token.is_stop and not token.is_punct and token.lemma_.isalpha()]
     return " ".join(tokens)
 
-tqdm.pandas()
 df_all['processed_sentence'] = df_all['sentence'].progress_apply(spacy_preprocess)
 
 # Save combined file
